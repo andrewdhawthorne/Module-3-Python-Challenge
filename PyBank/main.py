@@ -1,5 +1,6 @@
 import os
 import csv
+import statistics
 
 # declaration and assignation of variables 
 dates = []
@@ -31,6 +32,19 @@ with open(csvpath) as csvfile:
 for i in dates:
     total_months += 1
 
+# First month - minus last month / total number of monthly differences 
+
+
+
+
+
+
+
+# x = statistics.mean(monthly_total)
+# average = mean(monthly_total)
+# print("Average Change:", x)
+
+
 # find total profits/losses
 # for i in monthly_total:
     # net_total += int(i)
@@ -40,10 +54,7 @@ for i in dates:
     # current_month = int(i)
     # next_month = int(next(i))
     # monthly_change = next_month - current_month
-    # overall_change += monthly_change 
-
-#df[difference] = df[next_month] - df[current_month]
-    
+    # overall_change += monthly_change   
 
 #average_change = overall_change / total_months    
 
