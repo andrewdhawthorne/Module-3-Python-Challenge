@@ -32,15 +32,15 @@ for i in dates:
     total_months += 1
 
 # find total profits/losses
-for i in monthly_total:
-    net_total += int(i)
+# for i in monthly_total:
+    # net_total += int(i)
 
 # loop through profits to find greatest increase
-for i in monthly_total:
-    current_month = int(i)
-    next_month = int(next(i))
-    monthly_change = next_month - current_month
-    overall_change += monthly_change 
+# for i in monthly_total:
+    # current_month = int(i)
+    # next_month = int(next(i))
+    # monthly_change = next_month - current_month
+    # overall_change += monthly_change 
 
 #df[difference] = df[next_month] - df[current_month]
     
