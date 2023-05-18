@@ -39,6 +39,7 @@ for i in monthly_total:
 #print(monthly_total)
 #print(total_months)
 
+#find average month-to-month change 
 start_total = int(monthly_total[0])
 end_total = int(monthly_total[-1])
 overall_change = end_total - start_total
@@ -50,6 +51,7 @@ average_change = round(average_change, 2)
 
 #print(average_change)
 
+#find greatest change increase and greatest change decrease 
 monthly_changes_list = []
 month_1 = int(monthly_total[0])
 month_2 = 0
