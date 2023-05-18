@@ -36,19 +36,19 @@ for i in dates:
 for i in monthly_total:
     net_total += int(i)
 
-print(monthly_total)
-print(total_months)
+#print(monthly_total)
+#print(total_months)
 
 start_total = int(monthly_total[0])
 end_total = int(monthly_total[-1])
 overall_change = end_total - start_total
 
-print(overall_change)
+#print(overall_change)
 
 average_change = overall_change/(total_months -1)
 average_change = round(average_change, 2)
 
-print(average_change)
+#print(average_change)
 
 monthly_changes_list = []
 month_1 = int(monthly_total[0])
@@ -79,7 +79,5 @@ print("-------------------\n")
 print(f"Total Months: {total_months}\n")
 print(f"Total: ${net_total}\n")
 print(f"Average Change: ${average_change}\n")
-print(f"Greatest Increase in Profits: ${max(monthly_changes_list)}\n")
-print(f"Greatest Decrease in Profits: {greatest_increase_date} ${min(monthly_changes_list)}\n")
-print(greatest_increase_date)
-print(greatest_decrease_date)
+print(f"Greatest Increase in Profits: {greatest_increase_date} ${max(monthly_changes_list)}\n")
+print(f"Greatest Decrease in Profits: {greatest_decrease_date} ${min(monthly_changes_list)}\n")
