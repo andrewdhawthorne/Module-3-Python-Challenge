@@ -1,38 +1,39 @@
+# Import dependencies 
 import os
 import csv
 
+# Set path for file 
 csv_path = os.path.join('Resources', 'election_data.csv')
-candidate_vote_count = {}
 
+# Initialize variables 
+candidate_vote_count = {}
 total_votes = 0
 
+# Open file using UTF-8 encoding 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-with open(csv_path) as csv_file:
+with open(csv_path, encoding='UTF-8') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     csv_header = next(csv_reader)
-    print(f"CSV Header: {csv_header}")
 
+    # Loop through rows to calculate total votes 
     for row in csv_reader: 
         candidate_name = row[2]
-        # print(type(row), row) 
-        # Calculate total votes 
         total_votes += 1
         # Calcuatle total votes per candidate 
         if candidate_name not in candidate_vote_count:
             candidate_vote_count[candidate_name] = 0
         candidate_vote_count[candidate_name] += 1
-
         total_votes = sum(candidate_vote_count.values())
 
-candidate_vote_count["Charles Percent"] = round((candidate_vote_count["Charles Casper Stockham"]/total_votes) * 100, 3)
-candidate_vote_count["Diana Percent"] = round((candidate_vote_count["Diana DeGette"]/total_votes) * 100, 3)
-candidate_vote_count["Raymon Percent"] = round((candidate_vote_count["Raymon Anthony Doane"]/total_votes) * 100, 3)
+    # Calculate percentage of votes per candidate 
+    candidate_vote_count["Charles Percent"] = round((candidate_vote_count["Charles Casper Stockham"]/total_votes) * 100, 3)
+    candidate_vote_count["Diana Percent"] = round((candidate_vote_count["Diana DeGette"]/total_votes) * 100, 3)
+    candidate_vote_count["Raymon Percent"] = round((candidate_vote_count["Raymon Anthony Doane"]/total_votes) * 100, 3)
 
-candidate_winner = max(candidate_vote_count, key=candidate_vote_count.get)
+    # Calculate which candidate had the most votes 
+    candidate_winner = max(candidate_vote_count, key=candidate_vote_count.get)
 
-    # Calculate the percentage per candidate 
-    # Identify which candidate had the most votes
-
+# Display results 
 print("Election Results\n")
 print("-------------------\n")
 print("Total Vote: " + str(total_votes) + "\n")
@@ -44,6 +45,7 @@ print("-------------------\n")
 print("Winner: " + str(candidate_winner) + "\n")
 print("-------------------\n")
 
+# Print to txt file
 output_result = os.path.join(".", "analysis", "results.txt")
 
 with open(output_result, "w") as txt_file:
@@ -57,5 +59,3 @@ with open(output_result, "w") as txt_file:
     txt_file.write("-------------------\n")
     txt_file.write("Winner: " + str(candidate_winner) + "\n")
     txt_file.write("-------------------\n")
-
-    

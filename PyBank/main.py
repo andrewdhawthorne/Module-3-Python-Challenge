@@ -14,7 +14,7 @@ greatest_increase = 0
 greatest_decrease = 0
 overall_change = 0
 
-# Open file and split columns 
+# Open file using UTF-8 encoding 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
