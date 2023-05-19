@@ -20,7 +20,7 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
 
-    # COMMENT HERE
+    # Loop through rows to establish monthly increase/decrease 
     for row in csvreader:
        dates.append(row[0])
        monthly_total.append(int(row[1]))
@@ -35,16 +35,16 @@ with open(csvpath) as csvfile:
     for i in monthly_total:
         net_total += int(i)
 
-    # Find average month-to-month change 
+    # Initialize variables to find average month-to-month change 
     start_total = int(monthly_total[0])
     end_total = int(monthly_total[-1])
     overall_change = end_total - start_total
 
-    # Calculate averagce changes 
+    # Calculate average of changes and format percentage 
     average_change = overall_change/(total_months -1)
     average_change = round(average_change, 2)
 
-    # Initialize variables for finding greatest change increase and greatest change decrease 
+    # Initialize variables to find greatest change increase and greatest change decrease 
     monthly_changes_list = []
     month_1 = int(monthly_total[0])
     month_2 = 0
@@ -52,7 +52,7 @@ with open(csvpath) as csvfile:
     greatest_increase_date = ""
     greatest_decrease_date = ""
 
-    # Find greatest change increase and greatest change decrease 
+    # Loop through month=to-month changes 
     for i in monthly_total:
         month_2 = int(i)
         monthly_change = month_2 - month_1
@@ -69,7 +69,6 @@ with open(csvpath) as csvfile:
             greatest_increase_date = dates[i]
         elif monthly_changes_list[i] == greatest_decrease:
             greatest_decrease_date = dates[i]
-
 
 # Display results 
 print("Financial Analysis\n")
