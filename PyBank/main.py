@@ -13,6 +13,7 @@ overall_change = 0
 csvpath = os.path.join('Resources', 'budget_data.csv')
 print(csvpath)
 # open file and split columns 
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 with open(csvpath) as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -83,3 +84,14 @@ print(f"Total: ${net_total}\n")
 print(f"Average Change: ${average_change}\n")
 print(f"Greatest Increase in Profits: {greatest_increase_date} ${max(monthly_changes_list)}\n")
 print(f"Greatest Decrease in Profits: {greatest_decrease_date} ${min(monthly_changes_list)}\n")
+
+output_result = os.path.join(".", "analysis", "result.txt")
+
+with open(output_result, "w") as txt_file:
+    txt_file.write("Financial Analysis\n")
+    txt_file.write("-------------------\n")
+    txt_file.writet(f"Total Months: {total_months}\n")
+    txt_file.write(f"Total: ${net_total}\n")
+    txt_file.write(f"Average Change: ${average_change}\n")
+    txt_file.write(f"Greatest Increase in Profits: {greatest_increase_date} ${max(monthly_changes_list)}\n")
+    txt_file.write(f"Greatest Decrease in Profits: {greatest_decrease_date} ${min(monthly_changes_list)}\n")
