@@ -31,7 +31,7 @@ with open(csvpath) as csvfile:
     for i in dates:
         total_months += 1
 
-    # Find total profits/losses
+    # Find total profit/loss
     for i in monthly_total:
         net_total += int(i)
 
